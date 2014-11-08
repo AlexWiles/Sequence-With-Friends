@@ -15,10 +15,11 @@ function getColumn(beat) {
 }
 
 BEATS = 16;
-BPM = 480;
+BPM = 140;
 INTERVAL = 60000 / BPM;
 CURRENTCOL = 0;
 var beats = getColumn(CURRENTCOL++ % BEATS);
+var playingBeats = beats.filter('.selected');
 
 row_numbers = 1
 $('.container').append( row(BEATS, row_numbers++) );
@@ -32,11 +33,14 @@ $(document).on('click', '.note', function(){
 });
 
 function magic() {
+  if (playingBeats.length > 0) playingBeats.toggleClass('playing');
+  console.log(playingBeats.length);
   beats.toggleClass('on');
-  beats = getColumn(CURRENTCOL++ % BEATS);
+  column = getColumn(CURRENTCOL++ % BEATS);
+  beats = column.not(".selected");
   beats.toggleClass('on');
-  selectedBeats = beats.hasClass('selected');
+  playingBeats = column.filter('.selected');
+  if (playingBeats.length > 0) playingBeats.toggleClass('playing');
 }
 
 window.setInterval(magic, INTERVAL);
-

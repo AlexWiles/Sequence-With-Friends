@@ -7,6 +7,10 @@
   background-color: blue;
 }
 
+.playing {
+  background-color: yellow;
+}
+
 .on {
   background-color: red;
 }
