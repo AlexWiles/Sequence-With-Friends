@@ -1,5 +1,5 @@
 BEATS = 16;
-BPM = 240;
+BPM = 180;
 INTERVAL = 60000 / BPM/2;
 CURRENTCOL = 0;
 /// sum io shit
@@ -158,3 +158,4 @@ socket.on('files', function(msg){
     $('.container').append('<br />');
   });
 });
+
