@@ -5,6 +5,7 @@ body {
 }
 .row {
   height: 45px;
+  opacity: 0.9;
 }
 
 .idle {
@@ -24,17 +25,27 @@ body {
 
 .dropzone {
   padding-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   vertical-align: middle;
   height: 50px;
-}
-
-.container {
+  background-color: #3D5259;
+  width: 945px;
+  border-radius: 13px;
   margin-left: auto;
   margin-right: auto;
+  float: left;
+}
+
+.wrapper {
   width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.container {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .control {
@@ -61,4 +72,12 @@ body {
   float: left;
   cursor: pointer;
   border-radius: 13%;
+}
+
+.canvas {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 54<D-r>0px;
 }

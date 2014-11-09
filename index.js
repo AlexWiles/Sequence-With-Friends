@@ -38,13 +38,6 @@ io.on('connection', function(socket){
     socket.emit('files', files);
     socket.emit('initial', selected);
   });
-  connections++;
-  socket.broadcast.emit('newConnection', connections);
-
-  socket.on('disconnect', function() {
-    connections--;
-    socket.emit('newConnection', connections);
-  });
   socket.on('selection', function(msg){
     var index = selected.indexOf(msg);
     if (index != -1){
