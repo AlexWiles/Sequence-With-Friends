@@ -5,16 +5,25 @@
   </head>
   <body>
 
-  <div class='newnote'>[+]</div>
+    <div class='menu'>
+      <div class='control play'>PLAY</div>
+      <div class='control pause'>PAUSE</div>
+    </div>
+    <br />
 
-  <div class='container'>
-  </div>
+
+    <div class='title'><h1 class='people'></h1></div>
+    <div class='container'></div>
+    <form id="my-dropzone" action="/file-upload" class="dropzone"></form>
 
   </body>
-
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <link rel="stylesheet" type="text/css" href="/style/animate.min.css">
   <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.color.js"></script>
+  <script src="/js/socket.io-1.2.0.js"></script>
   <script src='/js/Tone.js'></script>
+  <script src="/js/dropzone.js"></script>
 
   <script src='/js/display.js'></script>
 </html>

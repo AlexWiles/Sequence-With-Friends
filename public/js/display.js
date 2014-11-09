@@ -7,6 +7,8 @@ CURRENTCOL = 0;
 var socket = io();
 
 Dropzone.options.myDropzone = {
+  dictDefaultMessage: "Drag New Samples Here",
+
   init: function() {
     var self = this;
     // config
@@ -53,7 +55,7 @@ function row(beats, row_number, filename) {
     return $.map($(Array(beats)),function(val, i) {
       return jQuery('<div/>', {
         id: i.toString(),
-        class: 'animated fadeIn note col' + i.toString() + " row" + row_number.toString(),
+        class: 'animated fadeIn idle note col' + i.toString() + " row" + row_number.toString(),
         row: row_number,
         col: i,
       })
@@ -85,6 +87,7 @@ $('.play').click(function() {
 
 
 $(document).on('click', '.note', function(){
+  $(this).toggleClass('idle');
   $(this).toggleClass('selected');
   var loc = $(this).attr('row') + "," + $(this).attr('col');
   socket.emit('selection', loc);
@@ -95,7 +98,6 @@ $(document).on('click', '.note', function(){
 function magic() {
   if (playingBeats.length > 0) {
     playingBeats.toggleClass('playing');
-    bgcolor();
   }
 
   beats.toggleClass('on');
@@ -116,7 +118,8 @@ function bgcolor() {
 
 socket.on('selection', function(msg){
   var loc = msg.split(',');
-  console.log(msg);
+  $('#' + loc[1] + '.row' + loc[0]).toggleClass('idle');
+
   $('#' + loc[1] + '.row' + loc[0]).toggleClass('selected');
 });
 
@@ -124,15 +127,26 @@ socket.on('initial', function(msg) {
   console.log(msg);
   $.each(msg, function(i, m) {
     var loc = m.split(',');
+    $('#' + loc[1] + '.row' + loc[0]).toggleClass('idle');
     $('#' + loc[1] + '.row' + loc[0]).toggleClass('selected');
   });
 });
 
 
 socket.on('newRow', function(msg){
-  console.log(msg);
   $('.container').append( row(BEATS, row_numbers++, msg) );
   $('.container').append('<br />');
+});
+
+socket.on('newConnection', function(msg){
+  var title;
+  if (msg == '1'){
+    title = msg + " PERSON HERE";
+  }
+  else {
+    title = msg + " PEOPLE HERE";
+  }
+  $('.people').text(title);
 });
 
 

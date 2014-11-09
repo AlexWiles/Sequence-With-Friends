@@ -1,0 +1,64 @@
+body {
+	color: white;
+  background-color: black;
+  font-family: helvetica;
+}
+.row {
+  height: 45px;
+}
+
+.idle {
+  background-color: #3D5259;
+}
+.selected {
+  background-color: #83DD75;
+}
+
+.playing {
+  background-color: #CC231E;
+}
+
+.dz-details, .dz-progress, .dz-success-mark, .dz-error-mark, .dz-error-message {
+  display: none;
+}
+
+.dropzone {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  vertical-align: middle;
+  height: 50px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}
+
+.control {
+  cursor: pointer;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.title {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.note {
+  width: 55px;
+  height: 55px;
+  border: 2px;
+  margin: none;
+  border-style: solid;
+  border-color: black;
+  float: left;
+  cursor: pointer;
+  border-radius: 13%;
+}
